@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Temp Dev — Case Studies</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@500;600&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header class="top-nav">
+      <div class="logo">
+        <div class="logo-mark" aria-hidden="true">
+          <svg viewBox="0 0 48 48" role="img" aria-label="Temp Dev logo">
+            <defs>
+              <linearGradient id="logo-gradient" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="#5b91ff" />
+                <stop offset="100%" stop-color="#9af0ff" />
+              </linearGradient>
+            </defs>
+            <rect width="48" height="48" rx="16" fill="url(#logo-gradient)"></rect>
+            <path
+              d="M15 16h18v4h-7v15h-4V20h-7z"
+              fill="#0d1117"
+            ></path>
+          </svg>
+        </div>
+        <div>
+          <p class="logo-title">Temp Dev</p>
+          <p class="logo-tag">Minimal websites. Maximum clarity.</p>
+        </div>
+      </div>
+      <nav>
+        <a href="index.html#process" data-i18n="nav_process">Process</a>
+        <a href="index.html#work" data-i18n="nav_work">Work</a>
+        <a href="index.html#quote" class="quote-link" data-i18n="nav_quote">Quote</a>
+        <a href="index.html#faq" data-i18n="nav_faq">FAQ</a>
+        <a href="index.html#contact" data-i18n="nav_contact">Contact</a>
+      </nav>
+      <div class="nav-actions">
+        <label class="language-select">
+          <span class="sr-only">Language</span>
+          <select id="language-select" aria-label="Language">
+            <option>EN</option>
+            <option>FR</option>
+            <option>ES</option>
+            <option>DE</option>
+          </select>
+        </label>
+        <button class="ghost-button" id="theme-toggle" type="button">
+          <span class="theme-icon" aria-hidden="true">☾</span>
+          <span class="theme-label">Dark</span>
+        </button>
+      </div>
+    </header>
+
+    <section class="subpage-hero">
+      <h1>Case studies that show real outcomes.</h1>
+      <p>
+        Each project highlights the strategy, design choices, and the lift in
+        engagement or conversion. Clean, focused, measurable.
+      </p>
+    </section>
+
+    <main>
+      <section class="section">
+        <div class="section-header">
+          <h2>Recent wins</h2>
+          <p>Metrics-first storytelling that builds trust fast.</p>
+        </div>
+        <div class="work-grid">
+          <div class="work-card">
+            <h3>Studio relaunch</h3>
+            <p>+41% inquiry rate after a focused landing page rebuild.</p>
+          </div>
+          <div class="work-card">
+            <h3>SaaS onboarding</h3>
+            <p>Streamlined messaging and improved CTA flow, +28% signups.</p>
+          </div>
+          <div class="work-card">
+            <h3>Consulting brand</h3>
+            <p>New identity system and site refresh, +2x time on page.</p>
+          </div>
+          <div class="work-card">
+            <h3>Product launch</h3>
+            <p>Landing page views up 32% with a clearer narrative.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-header">
+          <h2>How the work is measured</h2>
+          <p>We track results, not just visuals.</p>
+        </div>
+        <div class="work-grid">
+          <div class="work-card">
+            <h3>Conversion rate</h3>
+            <p>CTA placement, copy clarity, and trust signals.</p>
+          </div>
+          <div class="work-card">
+            <h3>Engagement</h3>
+            <p>Scroll depth, time on page, and content relevance.</p>
+          </div>
+          <div class="work-card">
+            <h3>Performance</h3>
+            <p>Speed scores, SEO checks, and accessibility compliance.</p>
+          </div>
+          <div class="work-card">
+            <h3>Lead quality</h3>
+            <p>Better form completion and qualified inquiries.</p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <a id="floating-quote" class="floating-quote" href="index.html#contact">Get quote</a>
+    <div id="page-end" class="page-end" aria-hidden="true"></div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
