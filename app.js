@@ -102,7 +102,7 @@ const translations = {
     pages_case_body: "Before/after insights, metrics, and the build process.",
     pages_case_cta: "View case studies",
     contact_title: "Contact",
-    contact_subtitle: "Share your project and I’ll reply within 24 hours.",
+    contact_subtitle: "Share your project and I’ll reply within 12 hours.",
     faq_pill: "FAQ",
     faq_title: "Frequently asked questions",
     faq_subtitle:
@@ -146,9 +146,9 @@ const translations = {
     contact_details_label: "Additional details",
     contact_details_placeholder: "Tell me about your goals, pages, or timeline.",
     contact_cta: "Send request",
-    contact_note: "Submissions are sent securely. I’ll reply within 24 hours.",
+    contact_note: "Submissions are sent securely. Reply within 12 hours.",
     contact_sending: "Sending...",
-    contact_success: "Thanks! Your request is on the way.",
+    contact_success: "Thanks! Ticket #{ticket} created. Reply within 12 hours.",
     contact_fallback: "Opening your email client as a fallback...",
     contact_info_title: "Contact info",
     contact_email_title: "Email",
@@ -224,7 +224,7 @@ const translations = {
     pages_case_body: "Avant/apres, metrics, et process.",
     pages_case_cta: "Voir les case studies",
     contact_title: "Contact",
-    contact_subtitle: "Partagez votre projet et reponse sous 24h.",
+    contact_subtitle: "Partagez votre projet et reponse sous 12h.",
     faq_pill: "FAQ",
     faq_title: "Questions frequentes",
     faq_subtitle: "Reponses claires sur prix, delais, et collaboration.",
@@ -267,9 +267,9 @@ const translations = {
     contact_details_label: "Details",
     contact_details_placeholder: "Objectifs, pages, ou timeline.",
     contact_cta: "Envoyer la demande",
-    contact_note: "Demande envoyee en securite. Reponse sous 24h.",
+    contact_note: "Demande envoyee en securite. Reponse sous 12h.",
     contact_sending: "Envoi en cours...",
-    contact_success: "Merci. Votre demande est bien envoyee.",
+    contact_success: "Merci. Ticket #{ticket} cree. Reponse sous 12h.",
     contact_fallback: "Ouverture de votre client email en secours...",
     contact_info_title: "Infos contact",
     contact_email_title: "Email",
@@ -345,7 +345,7 @@ const translations = {
     pages_case_body: "Antes/despues, metricas y proceso.",
     pages_case_cta: "Ver casos",
     contact_title: "Contacto",
-    contact_subtitle: "Comparte tu proyecto y respondo en 24h.",
+    contact_subtitle: "Comparte tu proyecto y respondo en 12h.",
     faq_pill: "FAQ",
     faq_title: "Preguntas frecuentes",
     faq_subtitle: "Respuestas claras sobre precios, tiempos y trabajo.",
@@ -388,9 +388,9 @@ const translations = {
     contact_details_label: "Detalles",
     contact_details_placeholder: "Objetivos, paginas o timeline.",
     contact_cta: "Enviar solicitud",
-    contact_note: "Envio seguro. Respondo en 24h.",
+    contact_note: "Envio seguro. Respondo en 12h.",
     contact_sending: "Enviando...",
-    contact_success: "Gracias. Tu solicitud ya esta enviada.",
+    contact_success: "Gracias. Ticket #{ticket} creado. Respondo en 12h.",
     contact_fallback: "Abriendo tu cliente de correo como respaldo...",
     contact_info_title: "Info de contacto",
     contact_email_title: "Email",
@@ -466,7 +466,7 @@ const translations = {
     pages_case_body: "Vorher/Nachher, Metriken und Prozess.",
     pages_case_cta: "Case Studies ansehen",
     contact_title: "Kontakt",
-    contact_subtitle: "Teilen Sie Ihr Projekt, Antwort in 24h.",
+    contact_subtitle: "Teilen Sie Ihr Projekt, Antwort in 12h.",
     faq_pill: "FAQ",
     faq_title: "Haeufige Fragen",
     faq_subtitle: "Klare Antworten zu Preis, Zeit und Zusammenarbeit.",
@@ -509,9 +509,9 @@ const translations = {
     contact_details_label: "Details",
     contact_details_placeholder: "Ziele, Seiten oder Timeline.",
     contact_cta: "Anfrage senden",
-    contact_note: "Sicher versendet. Antwort in 24h.",
+    contact_note: "Sicher versendet. Antwort in 12h.",
     contact_sending: "Senden...",
-    contact_success: "Danke. Ihre Anfrage ist unterwegs.",
+    contact_success: "Danke. Ticket #{ticket} erstellt. Antwort in 12h.",
     contact_fallback: "Email-Client als Fallback wird geoeffnet...",
     contact_info_title: "Kontaktinfo",
     contact_email_title: "Email",
@@ -637,8 +637,14 @@ const init = () => {
           if (!response.ok) throw new Error("Request failed");
           return response.json();
         })
-        .then(() => {
-          if (status) status.textContent = t("contact_success");
+        .then((payload) => {
+          if (status) {
+            const message = t("contact_success").replace(
+              "{ticket}",
+              payload.ticket || ""
+            );
+            status.textContent = message.trim();
+          }
           contactForm.reset();
         })
         .catch(() => {
