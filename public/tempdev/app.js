@@ -58,6 +58,7 @@ const translations = {
   EN: {
     nav_process: "Process",
     nav_work: "Work",
+    nav_method: "Methodology",
     nav_quote: "Quote",
     nav_faq: "FAQ",
     nav_contact: "Contact",
@@ -72,6 +73,7 @@ const translations = {
     stat_mock_label: "Free mock, no charge",
     stat_responsive: "Responsive + SEO-ready",
     hero_about_cta: "About Temp",
+    hero_method_cta: "View methodology",
     process_title: "Process",
     process_subtitle: "Clear steps, zero fluff. You always know what happens next.",
     process_1_title: "Discovery",
@@ -184,6 +186,7 @@ const translations = {
   FR: {
     nav_process: "Processus",
     nav_work: "Portfolio",
+    nav_method: "Methodologie",
     nav_quote: "Devis",
     nav_faq: "FAQ",
     nav_contact: "Contact",
@@ -198,6 +201,7 @@ const translations = {
     stat_mock_label: "Mock gratuit",
     stat_responsive: "Responsive + SEO",
     hero_about_cta: "A propos de Temp",
+    hero_method_cta: "Voir la methodologie",
     process_title: "Processus",
     process_subtitle: "Etapes claires, sans perte de temps.",
     process_1_title: "Decouverte",
@@ -309,6 +313,7 @@ const translations = {
   ES: {
     nav_process: "Proceso",
     nav_work: "Portafolio",
+    nav_method: "Metodologia",
     nav_quote: "Cotizar",
     nav_faq: "FAQ",
     nav_contact: "Contact",
@@ -323,6 +328,7 @@ const translations = {
     stat_mock_label: "Mock gratis",
     stat_responsive: "Responsive + SEO",
     hero_about_cta: "Sobre Temp",
+    hero_method_cta: "Ver metodologia",
     process_title: "Proceso",
     process_subtitle: "Pasos claros, sin vueltas.",
     process_1_title: "Descubrimiento",
@@ -434,6 +440,7 @@ const translations = {
   DE: {
     nav_process: "Ablauf",
     nav_work: "Arbeiten",
+    nav_method: "Methodik",
     nav_quote: "Angebot",
     nav_faq: "FAQ",
     nav_contact: "Kontakt",
@@ -448,6 +455,7 @@ const translations = {
     stat_mock_label: "Mock kostenlos",
     stat_responsive: "Responsive + SEO",
     hero_about_cta: "About Temp",
+    hero_method_cta: "Methodik ansehen",
     process_title: "Ablauf",
     process_subtitle: "Klare Schritte, kein Ballast.",
     process_1_title: "Discovery",
