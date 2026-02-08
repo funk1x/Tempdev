@@ -36,6 +36,24 @@ const initFloatingQuote = () => {
   observer.observe(contactSection);
 };
 
+const initHeaderHide = () => {
+  const header = document.querySelector(".top-nav");
+  if (!header) return;
+  let lastScroll = 0;
+  const threshold = 120;
+
+  window.addEventListener("scroll", () => {
+    const current = window.scrollY || 0;
+    const scrollingDown = current > lastScroll;
+    if (current > threshold && scrollingDown) {
+      header.classList.add("is-hidden");
+    } else {
+      header.classList.remove("is-hidden");
+    }
+    lastScroll = current;
+  });
+};
+
 const translations = {
   EN: {
     nav_process: "Process",
@@ -53,6 +71,7 @@ const translations = {
     stat_mock: "48 hours",
     stat_mock_label: "Free mock, no charge",
     stat_responsive: "Responsive + SEO-ready",
+    hero_about_cta: "About Temp",
     process_title: "Process",
     process_subtitle: "Clear steps, zero fluff. You always know what happens next.",
     process_1_title: "Discovery",
@@ -70,26 +89,26 @@ const translations = {
     dashboard_title: "Temp Dev Analytics",
     dashboard_live: "Live",
     dashboard_views_label: "Views",
-    dashboard_views_value: "128,420",
+    dashboard_views_value: "482,900",
     dashboard_ctr_label: "CTR",
-    dashboard_ctr_value: "4.8%",
+    dashboard_ctr_value: "6.7%",
     dashboard_leads_label: "Leads",
-    dashboard_leads_value: "312",
+    dashboard_leads_value: "1,240",
     dashboard_trend_label: "Views trending up",
-    dashboard_trend_value: "+63%",
+    dashboard_trend_value: "+128%",
     quote_text:
       "“Minimal doesn’t mean simple. It means every element earns its place.”",
     quote_credit: "— Temp, Developer & Designer",
     work_title: "What you get",
-    work_subtitle: "Every project includes strategic guidance, not just pixels.",
-    work_1_title: "Strategy + messaging",
-    work_1_body: "Clear positioning, structure, and CTAs that align with how buyers decide.",
-    work_2_title: "Visual system",
-    work_2_body: "Typography, spacing, and layout decisions that feel premium and intentional.",
-    work_3_title: "Performance build",
-    work_3_body: "Fast-loading pages with SEO basics, accessibility, and responsive polish.",
-    work_4_title: "Launch + support",
-    work_4_body: "Deployment, basic analytics setup, and handoff docs for easy updates.",
+    work_subtitle: "Everything you need to ship a strong website.",
+    work_1_title: "Clear plan",
+    work_1_body: "We map the pages, copy, and CTAs so visitors know what to do.",
+    work_2_title: "Premium design",
+    work_2_body: "Clean layout, strong typography, and spacing that looks expensive.",
+    work_3_title: "Fast build",
+    work_3_body: "Quick load times, mobile-ready, and easy to maintain.",
+    work_4_title: "Launch support",
+    work_4_body: "Domain setup, analytics, and a handoff you can use.",
     pages_title: "Pages",
     pages_subtitle: "Landing page plus optional subpages to expand your story.",
     pages_services_title: "Services",
@@ -154,9 +173,12 @@ const translations = {
     contact_email_title: "Email",
     contact_phone_title: "Phone",
     contact_avail_title: "Availability",
-    contact_avail_body: "Currently booking for next month. Limited slots.",
-    contact_location_title: "Location",
-    contact_location_body: "Remote · Working with teams worldwide.",
+    contact_avail_body: "Taking on new projects now. Limited slots.",
+    contact_timezones_title: "World clocks",
+    clock_ny: "New York",
+    clock_ldn: "London",
+    clock_paris: "Paris",
+    clock_tokyo: "Tokyo",
     floating_quote: "Get quote"
   },
   FR: {
@@ -175,6 +197,7 @@ const translations = {
     stat_mock: "48 heures",
     stat_mock_label: "Mock gratuit",
     stat_responsive: "Responsive + SEO",
+    hero_about_cta: "A propos de Temp",
     process_title: "Processus",
     process_subtitle: "Etapes claires, sans perte de temps.",
     process_1_title: "Decouverte",
@@ -192,26 +215,26 @@ const translations = {
     dashboard_title: "Temp Dev Analytics",
     dashboard_live: "Live",
     dashboard_views_label: "Vues",
-    dashboard_views_value: "128 420",
+    dashboard_views_value: "482 900",
     dashboard_ctr_label: "CTR",
-    dashboard_ctr_value: "4,8%",
+    dashboard_ctr_value: "6,7%",
     dashboard_leads_label: "Leads",
-    dashboard_leads_value: "312",
+    dashboard_leads_value: "1 240",
     dashboard_trend_label: "Vues en hausse",
-    dashboard_trend_value: "+63%",
+    dashboard_trend_value: "+128%",
     quote_text:
       "“Minimal ne veut pas dire simple. Chaque element a sa place.”",
     quote_credit: "— Temp, Developer & Designer",
     work_title: "Ce que vous obtenez",
-    work_subtitle: "Chaque projet inclut une vraie strategie.",
-    work_1_title: "Strategie + message",
-    work_1_body: "Positionnement clair, structure solide, et appels a l’action.",
-    work_2_title: "Systeme visuel",
-    work_2_body: "Typo, rythme, et layout qui donnent une impression premium.",
-    work_3_title: "Build performance",
-    work_3_body: "Pages rapides, SEO de base, accessibilite, responsive propre.",
-    work_4_title: "Lancement + support",
-    work_4_body: "Mise en ligne, analytics, et docs pour updates faciles.",
+    work_subtitle: "Tout ce qu’il faut pour un site solide.",
+    work_1_title: "Plan clair",
+    work_1_body: "Pages, message, et CTA pour guider le visiteur.",
+    work_2_title: "Design premium",
+    work_2_body: "Layout propre, typo forte, et rythme elegant.",
+    work_3_title: "Build rapide",
+    work_3_body: "Chargement rapide, mobile OK, et simple a maintenir.",
+    work_4_title: "Support launch",
+    work_4_body: "Domaine, analytics, et handoff utilisable.",
     pages_title: "Pages",
     pages_subtitle: "Landing + sous-pages pour renforcer votre histoire.",
     pages_services_title: "Services",
@@ -275,9 +298,12 @@ const translations = {
     contact_email_title: "Email",
     contact_phone_title: "Telephone",
     contact_avail_title: "Disponibilite",
-    contact_avail_body: "Reservations pour le mois prochain. Places limitees.",
-    contact_location_title: "Localisation",
-    contact_location_body: "Remote · Equipes partout.",
+    contact_avail_body: "Nouveaux projets ouverts. Places limitees.",
+    contact_timezones_title: "Horloges du monde",
+    clock_ny: "New York",
+    clock_ldn: "Londres",
+    clock_paris: "Paris",
+    clock_tokyo: "Tokyo",
     floating_quote: "Devis"
   },
   ES: {
@@ -296,6 +322,7 @@ const translations = {
     stat_mock: "48 horas",
     stat_mock_label: "Mock gratis",
     stat_responsive: "Responsive + SEO",
+    hero_about_cta: "Sobre Temp",
     process_title: "Proceso",
     process_subtitle: "Pasos claros, sin vueltas.",
     process_1_title: "Descubrimiento",
@@ -313,26 +340,26 @@ const translations = {
     dashboard_title: "Temp Dev Analytics",
     dashboard_live: "Live",
     dashboard_views_label: "Vistas",
-    dashboard_views_value: "128,420",
+    dashboard_views_value: "482,900",
     dashboard_ctr_label: "CTR",
-    dashboard_ctr_value: "4.8%",
+    dashboard_ctr_value: "6.7%",
     dashboard_leads_label: "Leads",
-    dashboard_leads_value: "312",
+    dashboard_leads_value: "1,240",
     dashboard_trend_label: "Vistas en alza",
-    dashboard_trend_value: "+63%",
+    dashboard_trend_value: "+128%",
     quote_text:
       "“Minimal no significa simple. Cada elemento tiene su lugar.”",
     quote_credit: "— Temp, Developer & Designer",
     work_title: "Lo que obtienes",
-    work_subtitle: "Cada proyecto incluye estrategia real.",
-    work_1_title: "Estrategia + mensaje",
-    work_1_body: "Posicionamiento claro, estructura y CTAs que convierten.",
-    work_2_title: "Sistema visual",
-    work_2_body: "Tipografia, ritmo y layout premium.",
-    work_3_title: "Build performance",
-    work_3_body: "Carga rapida, SEO base, accesibilidad y responsive.",
-    work_4_title: "Lanzamiento + soporte",
-    work_4_body: "Deploy, analiticas basicas y docs para updates.",
+    work_subtitle: "Todo lo necesario para un sitio fuerte.",
+    work_1_title: "Plan claro",
+    work_1_body: "Paginas, mensaje y CTAs para guiar al visitante.",
+    work_2_title: "Diseno premium",
+    work_2_body: "Layout limpio, tipografia fuerte y ritmo elegante.",
+    work_3_title: "Build rapido",
+    work_3_body: "Carga rapida, mobile listo y facil de mantener.",
+    work_4_title: "Soporte launch",
+    work_4_body: "Dominio, analiticas y handoff usable.",
     pages_title: "Paginas",
     pages_subtitle: "Landing + subpaginas para reforzar tu historia.",
     pages_services_title: "Servicios",
@@ -396,9 +423,12 @@ const translations = {
     contact_email_title: "Email",
     contact_phone_title: "Telefono",
     contact_avail_title: "Disponibilidad",
-    contact_avail_body: "Reservas para el proximo mes. Cupos limitados.",
-    contact_location_title: "Ubicacion",
-    contact_location_body: "Remote · Equipos globales.",
+    contact_avail_body: "Nuevos proyectos abiertos. Cupos limitados.",
+    contact_timezones_title: "Relojes del mundo",
+    clock_ny: "Nueva York",
+    clock_ldn: "Londres",
+    clock_paris: "Paris",
+    clock_tokyo: "Tokio",
     floating_quote: "Cotizar"
   },
   DE: {
@@ -417,6 +447,7 @@ const translations = {
     stat_mock: "48 Stunden",
     stat_mock_label: "Mock kostenlos",
     stat_responsive: "Responsive + SEO",
+    hero_about_cta: "About Temp",
     process_title: "Ablauf",
     process_subtitle: "Klare Schritte, kein Ballast.",
     process_1_title: "Discovery",
@@ -434,26 +465,26 @@ const translations = {
     dashboard_title: "Temp Dev Analytics",
     dashboard_live: "Live",
     dashboard_views_label: "Views",
-    dashboard_views_value: "128.420",
+    dashboard_views_value: "482.900",
     dashboard_ctr_label: "CTR",
-    dashboard_ctr_value: "4,8%",
+    dashboard_ctr_value: "6,7%",
     dashboard_leads_label: "Leads",
-    dashboard_leads_value: "312",
+    dashboard_leads_value: "1.240",
     dashboard_trend_label: "Views im Aufwaerts",
-    dashboard_trend_value: "+63%",
+    dashboard_trend_value: "+128%",
     quote_text:
       "“Minimal bedeutet nicht simpel. Jedes Element hat seinen Platz.”",
     quote_credit: "— Temp, Developer & Designer",
     work_title: "Was Sie bekommen",
-    work_subtitle: "Jedes Projekt enthaelt klare Strategie.",
-    work_1_title: "Strategie + Message",
-    work_1_body: "Klare Positionierung, Struktur und CTAs.",
-    work_2_title: "Visuelles System",
-    work_2_body: "Typo, Rhythmus und Layout mit Premium-Feeling.",
-    work_3_title: "Performance Build",
-    work_3_body: "Schnelle Seiten, SEO Basics, Accessibility, Responsive.",
-    work_4_title: "Launch + Support",
-    work_4_body: "Deployment, Analytics und einfache Doku.",
+    work_subtitle: "Alles fuer eine starke Website.",
+    work_1_title: "Klarer Plan",
+    work_1_body: "Seiten, Message und CTAs, damit Besucher handeln.",
+    work_2_title: "Premium Design",
+    work_2_body: "Sauberes Layout, starke Typo und gutes Spacing.",
+    work_3_title: "Schneller Build",
+    work_3_body: "Schnell, mobilbereit und leicht zu pflegen.",
+    work_4_title: "Launch Support",
+    work_4_body: "Domain, Analytics und handoff.",
     pages_title: "Seiten",
     pages_subtitle: "Landing + Unterseiten fuer Ihre Story.",
     pages_services_title: "Services",
@@ -517,9 +548,12 @@ const translations = {
     contact_email_title: "Email",
     contact_phone_title: "Telefon",
     contact_avail_title: "Verfuegbarkeit",
-    contact_avail_body: "Buchungen fuer naechsten Monat. Limitierte Slots.",
-    contact_location_title: "Standort",
-    contact_location_body: "Remote · Teams weltweit.",
+    contact_avail_body: "Neue Projekte moeglich. Limitierte Slots.",
+    contact_timezones_title: "Weltuhren",
+    clock_ny: "New York",
+    clock_ldn: "London",
+    clock_paris: "Paris",
+    clock_tokyo: "Tokio",
     floating_quote: "Angebot"
   }
 };
@@ -547,6 +581,55 @@ const applyTranslations = (lang) => {
 const t = (key) => {
   const active = translations[currentLang] || translations.EN;
   return active[key] || translations.EN[key] || "";
+};
+
+const initClocks = () => {
+  const clockNodes = Array.from(document.querySelectorAll("[data-clock]"));
+  if (!clockNodes.length) return;
+
+  const formatTime = (zone) =>
+    new Intl.DateTimeFormat("en-US", {
+      hour: "2-digit",
+      minute: "2-digit",
+      hour12: true,
+      timeZone: zone
+    }).format(new Date());
+
+  const updateClocks = () => {
+    clockNodes.forEach((node) => {
+      node.textContent = formatTime(node.dataset.clock);
+    });
+  };
+
+  updateClocks();
+  setInterval(updateClocks, 1000 * 30);
+};
+
+const initTrendCounter = () => {
+  const trendNode = document.querySelector(".chart-trend");
+  if (!trendNode) return;
+  const baseValue = 128;
+  let current = 0;
+  const duration = 3500;
+
+  const tick = () => {
+    current += 1;
+    if (current > baseValue) current = baseValue;
+    trendNode.textContent = `+${current}%`;
+  };
+
+  const animate = () => {
+    current = 0;
+    const stepMs = Math.max(20, Math.floor(duration / baseValue));
+    const interval = setInterval(() => {
+      tick();
+      if (current >= baseValue) {
+        clearInterval(interval);
+      }
+    }, stepMs);
+  };
+
+  animate();
 };
 
 const init = () => {
@@ -597,6 +680,10 @@ const init = () => {
       }
     });
   }
+
+  initClocks();
+  initTrendCounter();
+  initHeaderHide();
 
   const contactForm = document.getElementById("contact-form");
   if (contactForm) {

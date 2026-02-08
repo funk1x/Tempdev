@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Temp Dev — About</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@500;600&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header class="top-nav">
+      <div class="logo">
+        <div class="logo-mark" aria-hidden="true">
+          <svg viewBox="0 0 48 48" role="img" aria-label="Temp Dev logo">
+            <defs>
+              <linearGradient id="logo-gradient" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="#5b91ff" />
+                <stop offset="100%" stop-color="#9af0ff" />
+              </linearGradient>
+            </defs>
+            <rect width="48" height="48" rx="16" fill="url(#logo-gradient)"></rect>
+            <path
+              d="M15 16h18v4h-7v15h-4V20h-7z"
+              fill="#0d1117"
+            ></path>
+          </svg>
+        </div>
+        <div>
+          <p class="logo-title">Temp Dev</p>
+          <p class="logo-tag">Minimal websites. Maximum clarity.</p>
+        </div>
+      </div>
+      <nav>
+        <a href="index.html#process" data-i18n="nav_process">Process</a>
+        <a href="index.html#work" data-i18n="nav_work">Work</a>
+        <a href="index.html#quote" class="quote-link" data-i18n="nav_quote">Quote</a>
+        <a href="index.html#faq" data-i18n="nav_faq">FAQ</a>
+        <a href="index.html#contact" data-i18n="nav_contact">Contact</a>
+      </nav>
+      <div class="nav-actions">
+        <div class="language-select" id="language-select">
+          <button
+            class="lang-trigger"
+            type="button"
+            aria-haspopup="listbox"
+            aria-expanded="false"
+          >
+            <span class="lang-label">EN</span>
+            <span class="lang-caret" aria-hidden="true">▾</span>
+          </button>
+          <div class="lang-menu" role="listbox">
+            <button type="button" role="option" data-lang="EN">EN</button>
+            <button type="button" role="option" data-lang="FR">FR</button>
+            <button type="button" role="option" data-lang="ES">ES</button>
+            <button type="button" role="option" data-lang="DE">DE</button>
+          </div>
+        </div>
+        <button class="ghost-button" id="theme-toggle" type="button">
+          <span class="theme-icon" aria-hidden="true">☾</span>
+          <span class="theme-label">Dark</span>
+        </button>
+      </div>
+    </header>
+
+    <section class="subpage-hero">
+      <h1>About Temp</h1>
+      <p>
+        I’m Temp, a full-stack web developer and entrepreneur. I build clean, fast
+        websites with a focus on clarity, outcomes, and long-term value.
+      </p>
+    </section>
+
+    <main>
+      <section class="section">
+        <div class="section-header">
+          <h2>How I work</h2>
+          <p>Simple process, direct communication, fast delivery.</p>
+        </div>
+        <div class="work-grid">
+          <div class="work-card">
+            <h3>Clear direction</h3>
+            <p>We align on the goal, message, and layout before any build starts.</p>
+          </div>
+          <div class="work-card">
+            <h3>Fast execution</h3>
+            <p>I build quickly and keep you updated so nothing drifts.</p>
+          </div>
+          <div class="work-card">
+            <h3>Quality first</h3>
+            <p>Clean code, smooth UI, and a site that feels premium.</p>
+          </div>
+          <div class="work-card">
+            <h3>Launch ready</h3>
+            <p>Deployment help plus a simple handoff for future updates.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-header">
+          <h2>Let’s build</h2>
+          <p>Share what you want to launch and I’ll reply within 12 hours.</p>
+        </div>
+        <a class="primary-button" href="index.html#contact">Start a project</a>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>

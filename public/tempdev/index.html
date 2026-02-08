@@ -95,6 +95,11 @@
             <p data-i18n="stat_responsive">Responsive + SEO-ready</p>
           </div>
         </div>
+        <div class="hero-meta">
+          <a class="primary-button about-cta" href="about.html" data-i18n="hero_about_cta">
+            About Temp
+          </a>
+        </div>
       </div>
       <div class="hero-card">
         <p class="hero-card-title" data-i18n="hero_featured">Featured</p>
@@ -140,17 +145,19 @@
                     </linearGradient>
                   </defs>
                   <path
-                    d="M10 120 L70 100 L120 92 L180 70 L230 60 L290 35 L350 20"
+                    d="M10 120 L70 96 L120 84 L180 58 L230 46 L290 22 L350 8"
                     fill="none"
                     stroke="#22c55e"
                     stroke-width="4"
                     stroke-linecap="round"
+                    class="trend-line"
                   />
                   <path
-                    d="M10 120 L70 100 L120 92 L180 70 L230 60 L290 35 L350 20 L350 130 L10 130 Z"
+                    d="M10 120 L70 96 L120 84 L180 58 L230 46 L290 22 L350 8 L350 130 L10 130 Z"
                     fill="url(#trend)"
+                    class="trend-fill"
                   />
-                  <circle cx="350" cy="20" r="6" fill="#22c55e"></circle>
+                  <circle cx="350" cy="8" r="6" fill="#22c55e"></circle>
                 </svg>
                 <div class="chart-caption">
                   <span data-i18n="dashboard_trend_label">Views trending up</span>
@@ -203,10 +210,27 @@
       </section>
 
       <section id="quote" class="section quote-section">
-        <p class="quote-text" data-i18n="quote_text">
-          “Minimal doesn’t mean simple. It means every element earns its place.”
-        </p>
-        <p class="quote-credit" data-i18n="quote_credit">— Temp, Developer & Designer</p>
+        <div class="quote-inner">
+          <div>
+            <p class="quote-kicker" data-i18n="quote_kicker">Request a quote</p>
+            <h2 class="quote-title" data-i18n="quote_title">Transparent pricing, fast reply.</h2>
+            <p class="quote-text" data-i18n="quote_text">
+              Tell me the scope, timeline, and budget range. I’ll respond within 12
+              hours with a clear plan and a fixed quote.
+            </p>
+          </div>
+          <div class="quote-card">
+            <h3 data-i18n="quote_card_title">What you’ll get</h3>
+            <ul>
+              <li data-i18n="quote_card_1">Free 48-hour mock to confirm direction</li>
+              <li data-i18n="quote_card_2">Clear timeline and deliverables</li>
+              <li data-i18n="quote_card_3">Fixed price, no surprises</li>
+            </ul>
+            <a class="primary-button" href="#contact" data-i18n="quote_card_cta">
+              Start a quote
+            </a>
+          </div>
+        </div>
       </section>
 
       <section id="work" class="section work-section">
@@ -242,39 +266,6 @@
         </div>
       </section>
 
-      <section id="pages" class="section pages-section">
-        <div class="section-header">
-          <h2 data-i18n="pages_title">Pages</h2>
-          <p data-i18n="pages_subtitle">
-            Landing page plus optional subpages to expand your story.
-          </p>
-        </div>
-        <div class="pages-grid">
-          <div class="pages-card">
-            <h3 data-i18n="pages_services_title">Services</h3>
-            <p data-i18n="pages_services_body">
-              Detailed breakdown of offerings, pricing ranges, and deliverables.
-            </p>
-            <a class="ghost-button" href="services.html" data-i18n="pages_services_cta">
-              View services page
-            </a>
-          </div>
-          <div class="pages-card">
-            <h3 data-i18n="pages_method_title">Methodology</h3>
-            <p data-i18n="pages_method_body">Principles, timelines, and how the work is delivered.</p>
-            <a class="ghost-button" href="methodology.html" data-i18n="pages_method_cta">
-              View methodology
-            </a>
-          </div>
-          <div class="pages-card">
-            <h3 data-i18n="pages_case_title">Case studies</h3>
-            <p data-i18n="pages_case_body">Before/after insights, metrics, and the build process.</p>
-            <a class="ghost-button" href="case-studies.html" data-i18n="pages_case_cta">
-              View case studies
-            </a>
-          </div>
-        </div>
-      </section>
 
       <section id="faq" class="section faq-section">
         <div class="faq-layout">
@@ -410,24 +401,43 @@
             <div class="contact-methods">
               <div>
                 <p data-i18n="contact_email_title">Email</p>
-                <h4>info@tempdev.xyz</h4>
+                <h4>
+                  <a class="contact-link" href="mailto:info@tempdev.xyz">info@tempdev.xyz</a>
+                </h4>
               </div>
               <div>
                 <p data-i18n="contact_phone_title">Phone</p>
-                <h4>514-816-5793</h4>
+                <h4>
+                  <a class="contact-link" href="tel:+15148165793">+1 514-816-5793</a>
+                </h4>
               </div>
             </div>
             <div class="contact-highlight">
               <h4 data-i18n="contact_avail_title">Availability</h4>
               <p data-i18n="contact_avail_body">
-                Currently booking for next month. Limited slots.
+                Taking on new projects now. Limited slots.
               </p>
             </div>
             <div class="contact-highlight">
-              <h4 data-i18n="contact_location_title">Location</h4>
-              <p data-i18n="contact_location_body">
-                Remote · Working with teams worldwide.
-              </p>
+              <h4 data-i18n="contact_timezones_title">World clocks</h4>
+              <div class="world-clocks" aria-live="polite">
+                <div class="clock">
+                  <span data-i18n="clock_ny">New York</span>
+                  <strong data-clock="America/New_York">--:--</strong>
+                </div>
+                <div class="clock">
+                  <span data-i18n="clock_ldn">London</span>
+                  <strong data-clock="Europe/London">--:--</strong>
+                </div>
+                <div class="clock">
+                  <span data-i18n="clock_paris">Paris</span>
+                  <strong data-clock="Europe/Paris">--:--</strong>
+                </div>
+                <div class="clock">
+                  <span data-i18n="clock_tokyo">Tokyo</span>
+                  <strong data-clock="Asia/Tokyo">--:--</strong>
+                </div>
+              </div>
             </div>
           </div>
         </div>
