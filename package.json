@@ -1,0 +1,9 @@
+{
+  "name": "tempdev-site",
+  "version": "1.0.0",
+  "description": "Temp Dev personal website",
+  "main": "index.js",
+  "dependencies": {
+    "nodemailer": "^6.9.13"
+  }
+}
