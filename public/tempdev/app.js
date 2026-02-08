@@ -182,7 +182,8 @@ const translations = {
     clock_ldn: "London",
     clock_paris: "Paris",
     clock_tokyo: "Tokyo",
-    floating_quote: "Get quote"
+    floating_quote: "Free Mock",
+    floating_quote_sub: "48h"
   },
   FR: {
     nav_process: "Processus",
@@ -310,7 +311,8 @@ const translations = {
     clock_ldn: "Londres",
     clock_paris: "Paris",
     clock_tokyo: "Tokyo",
-    floating_quote: "Devis"
+    floating_quote: "Mock Gratuit",
+    floating_quote_sub: "48h"
   },
   ES: {
     nav_process: "Proceso",
@@ -438,7 +440,8 @@ const translations = {
     clock_ldn: "Londres",
     clock_paris: "Paris",
     clock_tokyo: "Tokio",
-    floating_quote: "Cotizar"
+    floating_quote: "Mock Gratis",
+    floating_quote_sub: "48h"
   },
   DE: {
     nav_process: "Ablauf",
@@ -566,7 +569,8 @@ const translations = {
     clock_ldn: "London",
     clock_paris: "Paris",
     clock_tokyo: "Tokio",
-    floating_quote: "Angebot"
+    floating_quote: "Mock Gratis",
+    floating_quote_sub: "48h"
   }
 };
 

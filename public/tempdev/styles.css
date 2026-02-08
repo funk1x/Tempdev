@@ -870,20 +870,54 @@ textarea {
   position: fixed;
   right: 24px;
   bottom: 24px;
-  background: var(--accent);
+  background: linear-gradient(135deg, var(--accent), var(--accent-soft));
   color: #0d1117;
-  padding: 12px 20px;
+  padding: 14px 22px;
   border-radius: 999px;
   font-weight: 600;
   box-shadow: var(--shadow);
   transition: opacity 0.3s ease, transform 0.3s ease;
   z-index: 20;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
 }
 
 .floating-quote.is-hidden {
   opacity: 0;
   transform: translateY(16px);
   pointer-events: none;
+}
+
+.floating-mock {
+  box-shadow: 0 16px 40px rgba(91, 145, 255, 0.35);
+  animation: float-pulse 6s ease-in-out infinite;
+}
+
+.floating-sub {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  background: rgba(13, 17, 23, 0.2);
+  padding: 4px 8px;
+  border-radius: 999px;
+}
+
+.floating-quote:hover {
+  transform: translateY(-2px) scale(1.01);
+  box-shadow: 0 20px 50px rgba(91, 145, 255, 0.45);
+}
+
+@keyframes float-pulse {
+  0%, 100% {
+    transform: translateY(0);
+    box-shadow: 0 16px 40px rgba(91, 145, 255, 0.35);
+  }
+  50% {
+    transform: translateY(-2px);
+    box-shadow: 0 20px 50px rgba(91, 145, 255, 0.45);
+  }
 }
 
 .form-note {
