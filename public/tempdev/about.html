@@ -5,16 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>TempDev - About</title>
     <link rel="stylesheet" href="styles.css" />
+    <meta name="description" content="About Temp — Full-stack developer building clean, fast websites with clarity, outcomes, and long-term value." />
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'><rect width='48' height='48' rx='12' fill='%235b91ff'/><path d='M15 16h18v4h-7v15h-4V20h-7z' fill='%230d1117'/></svg>" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@500;600&display=swap"
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&family=Instrument+Serif:ital@0;1&display=swap"
       rel="stylesheet"
     />
   </head>
   <body>
     <header class="top-nav">
-      <div class="logo">
+      <button class="nav-toggle" type="button" aria-label="Toggle menu" aria-expanded="false" aria-controls="main-nav">
+        <span></span><span></span><span></span>
+      </button>
+      <a href="index.html" class="logo" aria-label="Temp Dev home">
         <div class="logo-mark" aria-hidden="true">
           <svg viewBox="0 0 48 48" role="img" aria-label="Temp Dev logo">
             <defs>
@@ -34,10 +39,11 @@
           <p class="logo-title">Temp Dev</p>
           <p class="logo-tag">Minimal websites. Maximum clarity.</p>
         </div>
-      </div>
-      <nav>
+      </a>
+      <nav id="main-nav">
         <a href="index.html#process" data-i18n="nav_process">Process</a>
         <a href="index.html#work" data-i18n="nav_work">Work</a>
+        <a href="services.html">Services</a>
         <a href="index.html#quote" class="quote-link" data-i18n="nav_quote">Quote</a>
         <a href="index.html#faq" data-i18n="nav_faq">FAQ</a>
         <a href="index.html#contact" data-i18n="nav_contact">Contact</a>
@@ -109,6 +115,9 @@
         <a class="primary-button" href="index.html#contact">Start a project</a>
       </section>
     </main>
+
+    <a id="floating-quote" class="floating-quote floating-mock" href="index.html#contact">Free Mock <span class="floating-sub">48h</span></a>
+    <div id="page-end" class="page-end" aria-hidden="true"></div>
 
     <script src="app.js"></script>
   </body>

@@ -5,16 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>TempDev - Full-Stack Developer</title>
     <link rel="stylesheet" href="styles.css" />
+    <meta name="description" content="Temp Dev — Clean, premium web builds for modern founders. Minimal websites. Maximum clarity. Free mock in 48h. 5 business day turnaround." />
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'><rect width='48' height='48' rx='12' fill='%235b91ff'/><path d='M15 16h18v4h-7v15h-4V20h-7z' fill='%230d1117'/></svg>" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@500;600&display=swap"
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&family=Instrument+Serif:ital@0;1&display=swap"
       rel="stylesheet"
     />
   </head>
   <body>
     <header class="top-nav">
-      <div class="logo">
+      <button class="nav-toggle" type="button" aria-label="Toggle menu" aria-expanded="false" aria-controls="main-nav">
+        <span></span><span></span><span></span>
+      </button>
+      <a href="index.html" class="logo" aria-label="Temp Dev home">
         <div class="logo-mark" aria-hidden="true">
           <svg viewBox="0 0 48 48" role="img" aria-label="Temp Dev logo">
             <defs>
@@ -34,10 +39,11 @@
           <p class="logo-title">Temp Dev</p>
           <p class="logo-tag">Minimal websites. Maximum clarity.</p>
         </div>
-      </div>
-      <nav>
+      </a>
+      <nav id="main-nav">
         <a href="#process" data-i18n="nav_process">Process</a>
         <a href="#work" data-i18n="nav_work">Work</a>
+        <a href="services.html">Services</a>
         <a href="#quote" class="quote-link" data-i18n="nav_quote">Quote</a>
         <a href="#faq" data-i18n="nav_faq">FAQ</a>
         <a href="#contact" data-i18n="nav_contact">Contact</a>
@@ -368,20 +374,20 @@
               <span data-i18n="contact_budget_label">Budget range</span>
               <select name="budget" required>
                 <option value="" data-i18n="contact_budget_placeholder">Select budget</option>
-                <option data-i18n="contact_budget_1">$0 – $250</option>
-                <option data-i18n="contact_budget_2">$250 – $500</option>
-                <option data-i18n="contact_budget_3">$500 – $2,500</option>
-                <option data-i18n="contact_budget_4">$2,500+</option>
+                <option value="$0 – $250" data-i18n="contact_budget_1">$0 – $250</option>
+                <option value="$250 – $500" data-i18n="contact_budget_2">$250 – $500</option>
+                <option value="$500 – $2,500" data-i18n="contact_budget_3">$500 – $2,500</option>
+                <option value="$2,500+" data-i18n="contact_budget_4">$2,500+</option>
               </select>
             </label>
             <label>
               <span data-i18n="contact_type_label">Project type</span>
               <select name="project-type" required>
                 <option value="" data-i18n="contact_type_placeholder">Select type</option>
-                <option data-i18n="contact_type_1">Portfolio / Personal brand</option>
-                <option data-i18n="contact_type_2">Startup / Business site</option>
-                <option data-i18n="contact_type_3">E-commerce</option>
-                <option data-i18n="contact_type_4">Web app marketing</option>
+                <option value="Portfolio / Personal brand" data-i18n="contact_type_1">Portfolio / Personal brand</option>
+                <option value="Startup / Business site" data-i18n="contact_type_2">Startup / Business site</option>
+                <option value="E-commerce" data-i18n="contact_type_3">E-commerce</option>
+                <option value="Web app marketing" data-i18n="contact_type_4">Web app marketing</option>
               </select>
             </label>
             <label class="full-width">

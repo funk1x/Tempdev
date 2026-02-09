@@ -99,8 +99,15 @@ const translations = {
     dashboard_trend_label: "Views trending up",
     dashboard_trend_value: "+128%",
     quote_text:
-      "“Minimal doesn’t mean simple. It means every element earns its place.”",
+      "Tell me the scope, timeline, and budget range. I'll respond within 12 hours with a clear plan and a fixed quote.",
     quote_credit: "— Temp, Developer & Designer",
+    quote_kicker: "Request a quote",
+    quote_title: "Transparent pricing, fast reply.",
+    quote_card_title: "What you'll get",
+    quote_card_1: "Free 48-hour mock to confirm direction",
+    quote_card_2: "Clear timeline and deliverables",
+    quote_card_3: "Fixed price, no surprises",
+    quote_card_cta: "Start a quote",
     work_title: "What you get",
     work_subtitle: "Everything you need to ship a strong website.",
     work_1_title: "Clear plan",
@@ -169,7 +176,7 @@ const translations = {
     contact_cta: "Send request",
     contact_note: "Submissions are sent securely. Reply within 12 hours.",
     contact_sending: "Sending...",
-    contact_success: "Thanks! Ticket #{ticket} created. Reply within 12 hours.",
+    contact_success: "Thanks! Ticket {ticket} created. I'll reply within 12 hours.",
     contact_fallback: "Opening your email client as a fallback...",
     contact_info_title: "Contact info",
     contact_email_title: "Email",
@@ -298,7 +305,7 @@ const translations = {
     contact_cta: "Envoyer la demande",
     contact_note: "Demande envoyee en securite. Reponse sous 12h.",
     contact_sending: "Envoi en cours...",
-    contact_success: "Merci. Ticket #{ticket} cree. Reponse sous 12h.",
+    contact_success: "Merci! Ticket {ticket} créé. Je réponds sous 12h.",
     contact_fallback: "Ouverture de votre client email en secours...",
     contact_info_title: "Infos contact",
     contact_email_title: "Email",
@@ -427,7 +434,7 @@ const translations = {
     contact_cta: "Enviar solicitud",
     contact_note: "Envio seguro. Respondo en 12h.",
     contact_sending: "Enviando...",
-    contact_success: "Gracias. Ticket #{ticket} creado. Respondo en 12h.",
+    contact_success: "¡Gracias! Ticket {ticket} creado. Respondo en 12h.",
     contact_fallback: "Abriendo tu cliente de correo como respaldo...",
     contact_info_title: "Info de contacto",
     contact_email_title: "Email",
@@ -556,7 +563,7 @@ const translations = {
     contact_cta: "Anfrage senden",
     contact_note: "Sicher versendet. Antwort in 12h.",
     contact_sending: "Senden...",
-    contact_success: "Danke. Ticket #{ticket} erstellt. Antwort in 12h.",
+    contact_success: "Danke! Ticket {ticket} erstellt. Ich antworte in 12h.",
     contact_fallback: "Email-Client als Fallback wird geoeffnet...",
     contact_info_title: "Kontaktinfo",
     contact_email_title: "Email",
@@ -648,9 +655,54 @@ const initTrendCounter = () => {
   animate();
 };
 
+const initReveal = () => {
+  const revealNodes = document.querySelectorAll(
+    ".process-card, .work-card, .pages-card, .section-header, .quote-inner > div, .faq-intro, .contact-grid > *"
+  );
+  if (!revealNodes.length) return;
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-visible");
+        }
+      });
+    },
+    { threshold: 0.1, rootMargin: "0px 0px -40px 0px" }
+  );
+
+  revealNodes.forEach((el, i) => {
+    el.classList.add("reveal");
+    const delay = i % 4;
+    if (delay) el.classList.add(`reveal-delay-${delay}`);
+    observer.observe(el);
+  });
+};
+
+const initNavToggle = () => {
+  const toggle = document.querySelector(".nav-toggle");
+  const nav = document.getElementById("main-nav");
+  if (!toggle || !nav) return;
+
+  toggle.addEventListener("click", () => {
+    const isOpen = nav.classList.toggle("is-open");
+    toggle.setAttribute("aria-expanded", String(isOpen));
+  });
+
+  nav.querySelectorAll("a").forEach((link) => {
+    link.addEventListener("click", () => {
+      nav.classList.remove("is-open");
+      toggle.setAttribute("aria-expanded", "false");
+    });
+  });
+};
+
 const init = () => {
   initTheme();
   initFloatingQuote();
+  initNavToggle();
+  initReveal();
 
   if (languageSelect) {
     const storedLang = localStorage.getItem("tempdev-lang") || "EN";
@@ -712,7 +764,13 @@ const init = () => {
       const projectType = formData.get("project-type");
       const details = formData.get("details");
       const status = document.getElementById("contact-status");
+      const submitBtn = contactForm.querySelector('button[type="submit"]');
       if (status) status.textContent = t("contact_sending");
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.dataset.originalText = submitBtn.textContent;
+        submitBtn.textContent = t("contact_sending");
+      }
 
       const subject = `New project inquiry from ${name || "TempDev.xyz"}`;
       const body = [
@@ -749,10 +807,18 @@ const init = () => {
             status.textContent = message.trim();
           }
           contactForm.reset();
+          if (submitBtn) {
+            submitBtn.disabled = false;
+            submitBtn.textContent = submitBtn.dataset.originalText || t("contact_cta");
+          }
         })
         .catch(() => {
           if (status) {
             status.textContent = t("contact_fallback");
+          }
+          if (submitBtn) {
+            submitBtn.disabled = false;
+            submitBtn.textContent = submitBtn.dataset.originalText || t("contact_cta");
           }
           const mailto = `mailto:info@tempdev.xyz?subject=${encodeURIComponent(
             subject
